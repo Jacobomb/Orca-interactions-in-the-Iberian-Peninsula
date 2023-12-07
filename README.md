@@ -6,12 +6,12 @@
 
 Este proyecto forma parte del trabajo final del curso de Análisis de Datos en Ironhack, cursado de octubre a diciembre del año 2023.
 
-A continuacón se incluye el proceso llevado a cabo desde la obtención de la base de datos hasta el posterior análisis y presentación de resultados vía PowerBI.
+A continuacón se incluye el proceso llevado a cabo desde la obtención de la base de datos hasta el posterior análisis y presentación de resultados vía Power BI.
 
-Se ha escogido como foco del estudio el reciente auge en casos de interacciones de orcas con barcos la Península Ibérica y alrededores. Motivado por conocer si existen factores en común entre las interacciones se decide graficar y presentar los datos una vez se ha montado una base de datos consistente.
+Se ha escogido como foco del estudio el reciente auge en casos de interacciones de orcas con barcos en la Península Ibérica y alrededores. Motivado por conocer si existen factores en común entre las interacciones, se decide graficar y presentar los datos una vez se ha montado una base de datos consistente.
 
 ## Obtención BBDD
-En primer lugar, resulta fundamental dar con una base de datos de hechos reales en los que poder basar el estudio. PAra ello se deben mencionar dos grandes partes que han hehco posible el estudio.
+En primer lugar, resulta fundamental dar con una base de datos de hechos reales en los que poder basar el estudio. Para ello se deben mencionar dos grandes partes que han hehco posible el estudio.
 
 1) Grupo de Trabajo de la Orca Atlántica (GTOA)
 
@@ -19,11 +19,11 @@ Este equipo de biólogos marinos se dedica a contribuir en la conservación y ge
 
 2) Cruising Association (CA) 
 
-Es una asociación dedicada a navegantes de pequeñas embarcaciones con base en Reino Unido. Aunque también centran sus esfuerzos en proteger a la especie protegida de cetáceos, tienen la misión de trabajar conjuntamente con el GTOA para proteger a los marineros y prevenir que las interacciones con esta subpoblación termine con daños humanos o materiales de grandes dimensiones.
+Es una asociación dedicada a navegantes de pequeñas embarcaciones con base en Reino Unido. Aunque también centran sus esfuerzos en proteger esta especie protegida de cetáceos, tienen la misión de trabajar conjuntamente con el GTOA para proteger a los marineros y prevenir que las interacciones con esta subpoblación termine con daños humanos o materiales de grandes dimensiones.
 
 Gracias al trabajo realizado por estas dos partes, el autor de este proyecto ha utilizado el método de raspado web (más conocido por el anglicismo *web scraping*) para formar una base de datos. Esta metodología de obtenicón de información se ha aplicado sobre la siguiente [web](https://www.theca.org.uk/orcas/reports). Aquí se puede encontrar una lista con los formularios rellenados por los patrones de las embarcaciones que vivieron una interacción con orcas en algun punto cercano a la península. 
 
-Pese a que no todos los cuestionarios contestados coincdieran en formato y forma, en la siguiente lista desplegable se pueden encontrar las columnas de la BBDD así como una pequeña descripción del contenido de la misma:
+Pese a que no todos los cuestionarios contestados coincidieran en formato y forma, en la siguiente lista desplegable se pueden encontrar las columnas de la BBDD así como una pequeña descripción del contenido de la misma:
 
 <details>
 <summary>Columnas de la BBDD:</summary>
@@ -60,7 +60,7 @@ Pese a que no todos los cuestionarios contestados coincdieran en formato y forma
 </details>
 
 
-Se anima al lector a profundizar en el código dessarrollado para recolectar la información arriba mencionada. Se puede encontrar el código comentado y desrrollado en Python en el notebook [1.WebScraping.ipynb](https://github.com/Jacobomb/Orca-interactions-in-the-Iberian-Peninsula/blob/main/notebooks/1.WebScraping.ipynb). 
+Se anima al lector a profundizar en el código desarrollado para recolectar la información arriba mencionada. Se puede encontrar el código comentado y desarrollado en Python en el notebook [1.WebScraping.ipynb](https://github.com/Jacobomb/Orca-interactions-in-the-Iberian-Peninsula/blob/main/notebooks/1.WebScraping.ipynb). 
 
 ## Limpieza y completado de la BBDD
 
@@ -80,10 +80,10 @@ El proceso de limpieza o transformado de datos es clave en todo proyecto y por t
 
 Una vez se ha recogido, limpiado y completado toda la información en un archivo de tipo CSV que se puede encontrar en la carpeta [data](https://github.com/Jacobomb/Orca-interactions-in-the-Iberian-Peninsula/tree/main/data), el siguiente paso constó en cargar la información a [MySQL Workbench](https://www.mysql.com/products/workbench/). Este es un programa desarrollado por Oracle que permite administrar remotamente bases de datos. 
 
-En el notebook [4.DataLoading.ipynb](https://github.com/Jacobomb/Orca-interactions-in-the-Iberian-Peninsula/blob/main/notebooks/4.DataLoading.ipynb) se puede seguir el proceso para llevar a cabo la creación de la base de datos desde Python. Una vez se ha creado esta, se crea la tabla donde estará contenida toda la información de las interacciones orcas-barcos. La query de creación de la tabla está contenida en la carpeta [SQL](https://github.com/Jacobomb/Orca-interactions-in-the-Iberian-Peninsula/tree/main/SQL). Con la base montada, se puede cargar la información proveniente del archivo CSV.
+En el notebook [4.DataLoading.ipynb](https://github.com/Jacobomb/Orca-interactions-in-the-Iberian-Peninsula/blob/main/notebooks/4.DataLoading.ipynb) se puede seguir el proceso para llevar a cabo la creación de la base de datos desde Python. Una vez se ha creado esta, se da forma a la tabla donde estará contenida toda la información de las interacciones orcas-barcos. La query de creación de la tabla está contenida en la carpeta [SQL](https://github.com/Jacobomb/Orca-interactions-in-the-Iberian-Peninsula/tree/main/SQL). Con la base montada, se puede cargar la información proveniente del archivo CSV.
 
 ## Estudio de Correlación
-En este apartado se ha practicado un estudio de correlación como primer paso de análisis de resultados. Para ello, dado que las correlaciones únicamente se pueden calcular de variables numéricas, se han pasado las columnas de interés a valores booleanos mediante la función de Pandas [get_dummies()](https://pandas.pydata.org/docs/reference/api/pandas.get_dummies.html). 
+En este apartado se ha practicado un estudio de correlación como primer paso del análisis de resultados. Para ello, dado que las correlaciones únicamente se pueden calcular de variables numéricas, se han pasado las columnas de interés a valores booleanos mediante la función de Pandas [get_dummies()](https://pandas.pydata.org/docs/reference/api/pandas.get_dummies.html). 
 
 Para facilitar la detección de posibles correlaciones se hizo uso de un [mapa de calor](https://seaborn.pydata.org/generated/seaborn.heatmap.html) del paquete Seaborn. 
 
@@ -100,7 +100,7 @@ A continuación algunas de las correlaciones detectadas:
 
 ## Visualización
 
-Como último puerto de la travesía que ha supuesto el presente proyecto, se ha finalizado creando un Dashboard en la herramienta de Microsoft [PowerBI](https://powerbi.microsoft.com/es-es/). 
+Como último puerto de la travesía que ha supuesto el presente proyecto, se ha creado un Dashboard con la herramienta de Microsoft [Power BI](https://powerbi.microsoft.com/es-es/). 
 
 Para aquellos usuarios que tengan acceso a una cuenta educativa o profesional de Microsoft, en el siguiente [link](https://app.powerbi.com/groups/me/reports/06f5a951-9f7c-42c3-9085-e84c2a28f090/ReportSection?experience=power-bi) se puede acceder al dashboard interactivo. De lo contrario, en la carpeta [PowerBI_Dashboard](https://github.com/Jacobomb/Orca-interactions-in-the-Iberian-Peninsula/tree/main/PowerBI_Dashboard) se han incluido capturas de cada una de las pestañas de la presentación.
 
@@ -110,6 +110,8 @@ A continuación la pestaña de introducción:
 
 
 ## Protocolo GTOA
+
+![logosGTOAyCA](./images/descarga.png)
 
 De cara al interés público que tiene el proyecto, resulta pertinente comentar cual es el protocolo a seguir en caso de una interacción con la orca atlántica y que ha resultado ser respaldado por los datos de la presente BBDD.
 
@@ -154,8 +156,7 @@ Así como las siguientes pautas:
 #### Images
 * [Orca y Salvamento Marítimo](https://www.elmundo.es/ciencia-y-salud/ciencia/2022/05/19/62860cabe4d4d891768b45a7.html)
 * [Data cleaning image](https://medium.com/@jperezllorente/dataset-cleaning-with-pandas-python-32dd2291402)
-
-
+* [Logos GTOA y CA](https://www.theca.org.uk/orcas/es)
 
 
 ## Descargo de responsabilidad

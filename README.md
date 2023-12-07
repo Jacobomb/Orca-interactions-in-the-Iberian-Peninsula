@@ -1,8 +1,6 @@
-# Orca interactions in the Iberian Peninsula - WIP
+# Orca interactions in the Iberian Peninsula 
 
-Proyecto sobre la interacción de orcas en aguas de la península ibérica y alrededores.
-
-**METER ALGUNA IMAGEN AQUÍ**
+![orca_sm](./images/orca_sm.jpg)
 
 ##  Introducción
 
@@ -68,6 +66,8 @@ Se anima al lector a profundizar en el código dessarrollado para recolectar la 
 
 El siguiente paso del proyecto fue el de limpiar la base de datos de posibles errores que se hubieran dado en el raspado web. Dado que el raspado es una automatización de un proceso iterativo que va circulando por la web y grabando la información de utilidad en un dataframe, en el momento que un formulario tenga un orden distinto a los anteriores, se darán errores de dimensión y forma.
 
+![dataclean](./images/datacleaning.png)
+
 Esta parte se divide en dos notebooks distintos:
 
 * [Data Cleaning](https://github.com/Jacobomb/Orca-interactions-in-the-Iberian-Peninsula/blob/main/notebooks/2.DataCleaning.ipynb): En este notebook se aseguró que la información contenida en cada columna debía estar ahí. Se hizo uso del comando de Pandas [value_counts()](https://pandas.pydata.org/docs/reference/api/pandas.Series.value_counts.html) para comprobar los valores únicos de cada columna. Fue de gran utilidad que el formulario a rellenar por los patrones fuera de opción múltiple en lugar de respuesta abierta, esto simplificó el proceso de limpieza. Además, en este notebook se corrigieron aquellas filas que estaban descolocadas. El último proceso llevado a cabo en este notebook fue el de cambiar los tipos de datos de algunas columnas. Por la manera en que se había extraído el dato, inicialmente todas las columnas eran de tipo objeto y se cambiaron aquellas que lo permitieran a tipo númerico (entero o flotante) o de tipo `datetime` para la columna que contenía la fecha.
@@ -109,27 +109,58 @@ A continuación la pestaña de introducción:
 ![IntroOrcasDashboard](./PowerBI_Dashboard/OrcasDashboard_1.png)
 
 
+## Protocolo GTOA
 
+De cara al interés público que tiene el proyecto, resulta pertinente comentar cual es el protocolo a seguir en caso de una interacción con la orca atlántica y que ha resultado ser respaldado por los datos de la presente BBDD.
 
+Se enumeran a continuación:
 
+1) Si  es  posible en las condiciones de mar y localización, baje velocidad, pare el motor, (baje las velas), apague el piloto automático y deje el timón a la vía.
 
+2) Contacte con el 112/canal 16 radio o el oficial de la zona (Tarifa 10; Tánger 69; Fisterra 16).
 
+3) Saque las manos de la rueda del  timón y no la toque, apártese de cualquier parte del barco que pueda caer o girar bruscamente.
 
+4) Si es posible apagar la sonda y mantener ENCENDIDOS VHF y elementos de posición.
 
+5) Si tiene teléfono con cámara, u otro dispositivo, grabe a los animales, sobre todo sus aletas dorsales, para poder identificarlas.
 
+Así como las siguientes pautas:
 
+* Cuando después de un tiempo no note presión en el timón y los animales se hayan alejado, compruebe que gira y funciona.
 
+* Si  aprecia avería que impida navegación, solicite remolque.
 
+* Permita que se traslade su contacto a especialistas en cetáceos para evaluar su caso.
 
-
-
-
-
-
+* Información básica  trasladar a las autoridades: Nombre del barco - Día y hora – Contacto (teléfono / email)- Posición ( GPS/aproximada).
 
 
 ## Recursos
+#### Librerías y paquetes Python
+* [Pandas](https://pandas.pydata.org/docs/)
+* [Kaggle](https://www.kaggle.com/datasets/karthikbhandary2/boat-sales/data)
+* [PowerBI](https://powerbi.microsoft.com/es-es/)
+* [Selenium](https://www.selenium.dev/)
+* [SQLAlchemy](https://www.sqlalchemy.org/)
+* [Documentación librería Numpy](https://numpy.org/doc/)
+* [Documentación librería Matplotlib](https://matplotlib.org/stable/index.html)
 
-[Link](https://www.theca.org.uk/orcas/interaction-report-form/es) del formulario a rellenar en caso de interacción con una orca.
+#### Orcas e información de utilidad
+* [Link](https://www.theca.org.uk/orcas/interaction-report-form/es) del formulario a rellenar en caso de interacción con una orca.
+* [GTOA](https://www.orcaiberica.org/): Grupo de Trabajo Orca Atlántica
+* [Cruising Association](https://www.theca.org.uk/)
 
-## Disclaimer -> No se si poner disclaimer pero decir que ni soy biologo marino ni represento en ningun momento a CA ni a GTOA
+#### Images
+* [Orca y Salvamento Marítimo](https://www.elmundo.es/ciencia-y-salud/ciencia/2022/05/19/62860cabe4d4d891768b45a7.html)
+* [Data cleaning image](https://medium.com/@jperezllorente/dataset-cleaning-with-pandas-python-32dd2291402)
+
+
+
+
+## Descargo de responsabilidad
+
+Este trabajo no ha sido respaldado ni trabajado conjuntamente con el GTOA ni con la CA, únicamente se ha hecho uso de sus datos.
+
+El autor de este trabajo no es un experto de la materia ni tiene estudios de biología marina. El autor no se hace responsable de cualquier recomendación que no resulte ser efectiva de cara a una interación marítima con la orca atlántica ni cualquier otro cetáceo. 
+

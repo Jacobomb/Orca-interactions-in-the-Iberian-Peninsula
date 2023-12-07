@@ -102,7 +102,11 @@ A continuación algunas de las correlaciones detectadas:
 
 Como último puerto de la travesía que ha supuesto el presente proyecto, se ha finalizado creando un Dashboard en la herramienta de Microsoft [PowerBI](https://powerbi.microsoft.com/es-es/). 
 
-Para aquellos usuarios que tengan acceso, en el siguiente [link]()
+Para aquellos usuarios que tengan acceso a una cuenta educativa o profesional de Microsoft, en el siguiente [link](https://app.powerbi.com/groups/me/reports/06f5a951-9f7c-42c3-9085-e84c2a28f090/ReportSection?experience=power-bi) se puede acceder al dashboard interactivo. De lo contrario, en la carpeta [PowerBI_Dashboard](https://github.com/Jacobomb/Orca-interactions-in-the-Iberian-Peninsula/tree/main/PowerBI_Dashboard) se han incluido capturas de cada una de las pestañas de la presentación.
+
+A continuación la pestaña de introducción:
+
+![IntroOrcasDashboard](./PowerBI_Dashboard/OrcasDashboard_1.png)
 
 
 

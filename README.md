@@ -82,7 +82,27 @@ Una vez se ha recogido, limpiado y completado toda la información en un archivo
 
 En el notebook [4.DataLoading.ipynb](https://github.com/Jacobomb/Orca-interactions-in-the-Iberian-Peninsula/blob/main/notebooks/4.DataLoading.ipynb) se puede seguir el proceso para llevar a cabo la creación de la base de datos desde Python. Una vez se ha creado esta, se crea la tabla donde estará contenida toda la información de las interacciones orcas-barcos. La query de creación de la tabla está contenida en la carpeta [SQL](https://github.com/Jacobomb/Orca-interactions-in-the-Iberian-Peninsula/tree/main/SQL). Con la base montada, se puede cargar la información proveniente del archivo CSV.
 
-## Estudio de Correlación entre columnas
+## Estudio de Correlación
+En este apartado se ha practicado un estudio de correlación como primer paso de análisis de resultados. Para ello, dado que las correlaciones únicamente se pueden calcular de variables numéricas, se han pasado las columnas de interés a valores booleanos mediante la función de Pandas [get_dummies()](https://pandas.pydata.org/docs/reference/api/pandas.get_dummies.html). 
+
+Para facilitar la detección de posibles correlaciones se hizo uso de un [mapa de calor](https://seaborn.pydata.org/generated/seaborn.heatmap.html) del paquete Seaborn. 
+
+Se anima al lector a repasar el código encontrado en el notebook [5.DataModelEvaluation.ipynb](https://github.com/Jacobomb/Orca-interactions-in-the-Iberian-Peninsula/blob/main/notebooks/5.DataModelEvaluation.ipynb)
+
+A continuación algunas de las correlaciones detectadas:
+
+* Se ve una ligera relación entre la profundidad de las aguas donde se dio el ataque y el tiempo de interacción entre 30 y 60 minutos.
+* Existe una pequeña correlación entre barcos de más de 15m de eslora y condiciones meteorologicas adversas. Esto se puede explicar ya que a mayores dimensiones de barco, se espera una mayor resistencia y menor adversidad frente a mayor oleaje. Si hay más barcos de mayores dimensiones en el agua, es entendible que tengan más interacciones con cetáceos.
+* Existe una pequeña relación tambien entre el número de orcas adultas vistas y aquellos barcos que se encontraban arrastrando un señuelo pescando. Quizás esto se deba a que sean las orcas adultas las que lideran la pesca entre sus grupos.
+* También existe una relación entre aquellas orcas que tocaron físicamente los barcos y el número de orcas adultas y juveniles, siendo estas las que formulan los ataques en la mayoría de ocasiones.
+* También, aunque poco pronunciada, se puede ver una correlación entre los ataques que sucedieron de noche con los barcos que afirmaron estar remolcando una neumática. Si esto realmente fuera así, se podría recomendar a las tripulaciones recoger las neumáticas y subirlas a bordo por las noches. 
+* Comparando los tres rangos de velocidad de las embarcaciones se ve una mayor correlación con el resto de columnas a medida que aumenta la velocidad. Puede ser por esta razon que desde salvamento marítimo y GTOA se recomiende a las embarcaciones arriar las velas y apagar los motores. A menores velocidades las orcas tienden a desinterearse más rápido y provocar menos y menos aparatosos destrozos.
+
+## Visualización
+
+Como último puerto de la travesía que ha supuesto el presente proyecto, se ha finalizado creando un Dashboard en la herramienta de Microsoft [PowerBI](https://powerbi.microsoft.com/es-es/). 
+
+Para aquellos usuarios que tengan acceso, en el siguiente [link]()
 
 
 

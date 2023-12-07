@@ -66,11 +66,25 @@ Se anima al lector a profundizar en el código dessarrollado para recolectar la 
 
 ## Limpieza y completado de la BBDD
 
-El siguiente paso del proyecto fue el de limpiar la base de datos de posibles errores que se hubieran dado en el raspado web. Dado que el raspado es una automatización de un proceso iterativo que va circulando por la web en cuestión y grabando la información de utilidad en un dataframe, en cualquier momento que un formulario tenga un orden distinto a los anteriores, se darán errores de dimensión y forma.
+El siguiente paso del proyecto fue el de limpiar la base de datos de posibles errores que se hubieran dado en el raspado web. Dado que el raspado es una automatización de un proceso iterativo que va circulando por la web y grabando la información de utilidad en un dataframe, en el momento que un formulario tenga un orden distinto a los anteriores, se darán errores de dimensión y forma.
 
 Esta parte se divide en dos notebooks distintos:
 
-* [Data Cleaning](https://github.com/Jacobomb/Orca-interactions-in-the-Iberian-Peninsula/blob/main/notebooks/2.DataCleaning.ipynb): En este n
+* [Data Cleaning](https://github.com/Jacobomb/Orca-interactions-in-the-Iberian-Peninsula/blob/main/notebooks/2.DataCleaning.ipynb): En este notebook se aseguró que la información contenida en cada columna debía estar ahí. Se hizo uso del comando de Pandas [value_counts()](https://pandas.pydata.org/docs/reference/api/pandas.Series.value_counts.html) para comprobar los valores únicos de cada columna. Fue de gran utilidad que el formulario a rellenar por los patrones fuera de opción múltiple en lugar de respuesta abierta, esto simplificó el proceso de limpieza. Además, en este notebook se corrigieron aquellas filas que estaban descolocadas. El último proceso llevado a cabo en este notebook fue el de cambiar los tipos de datos de algunas columnas. Por la manera en que se había extraído el dato, inicialmente todas las columnas eran de tipo objeto y se cambiaron aquellas que lo permitieran a tipo númerico (entero o flotante) o de tipo `datetime` para la columna que contenía la fecha.
+
+* [Data Filling](https://github.com/Jacobomb/Orca-interactions-in-the-Iberian-Peninsula/blob/main/notebooks/3.DataFilling.ipynb): En este notebook se llevó a cabo un proceso de llenado de datos manual debido a un cambio en el formato del formulario. En gran medida se pudieron rellenar los datos vacíos gracias a las únicas dos casillas de *respuesta abierta* que existían. Estas son *Crew_Response* y *Orcas_Behaviour*. 
+
+El proceso de limpieza o transformado de datos es clave en todo proyecto y por tanto se anima al lector a profundizar en su lectura para descubrir técnicas y/o métodos de limpieza.
+
+## Carga de la BBDD
+
+Una vez se ha recogido, limpiado y completado toda la información en un archivo de tipo CSV que se puede encontrar en la carpeta [data](https://github.com/Jacobomb/Orca-interactions-in-the-Iberian-Peninsula/tree/main/data), el siguiente paso constó en cargar la información a [MySQL Workbench](https://www.mysql.com/products/workbench/). Este es un programa desarrollado por Oracle que permite administrar remotamente bases de datos. 
+
+En el notebook [4.DataLoading.ipynb](https://github.com/Jacobomb/Orca-interactions-in-the-Iberian-Peninsula/blob/main/notebooks/4.DataLoading.ipynb) se puede seguir el proceso para llevar a cabo la creación de la base de datos desde Python. Una vez se ha creado esta, se crea la tabla donde estará contenida toda la información de las interacciones orcas-barcos. La query de creación de la tabla está contenida en la carpeta [SQL](https://github.com/Jacobomb/Orca-interactions-in-the-Iberian-Peninsula/tree/main/SQL). Con la base montada, se puede cargar la información proveniente del archivo CSV.
+
+## Estudio de Correlación entre columnas
+
+
 
 
 
